@@ -20,15 +20,15 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE, verbose_name="categorie")
     name = models.CharField(max_length=150, db_index=True, verbose_name="nom")
-    slug = models.SlugField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=150, db_index=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="prix")
     available = models.BooleanField(default=True, verbose_name="disponibilité")
-    created = models.DateTimeField(auto_now_add=True, verbose_name="création")
-    updated = models.DateTimeField(auto_now=True, verbose_name="mis-à-jour")
+    created = models.DateTimeField(auto_now_add=True, verbose_name="date de création")
+    updated = models.DateTimeField(auto_now=True, verbose_name="date de mise à jour")
 
     class Meta:
         ordering = ('name',)
