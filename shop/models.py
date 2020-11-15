@@ -10,7 +10,6 @@ class Category(models.Model):
     class Meta:
         ordering = ('name',)
         verbose_name = 'categorie'
-        verbose_name_plural = 'categories'
 
     def __str__(self):
         return self.name
@@ -34,7 +33,6 @@ class Product(models.Model):
         ordering = ('name',)
         index_together = (('id', 'slug'),)
         verbose_name = 'produit'
-        verbose_name_plural = 'produits'
 
     def __str__(self): return self.name
 

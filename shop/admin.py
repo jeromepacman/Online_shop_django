@@ -3,6 +3,8 @@ from django.contrib import admin
 from .models import Category, Product
 
 
+# commmit our models to admin control/ui
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
